@@ -1,0 +1,170 @@
+{
+  "main": {
+    "id": "67b45b268cda45d6",
+    "type": "split",
+    "children": [
+      {
+        "id": "cfbda258e8eda8f2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "36a6ac8461a74ed0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dfd7c6a03ec06ab7",
+    "type": "split",
+    "children": [
+      {
+        "id": "cdf2615b06a98007",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "35c1004e179feebe",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "df3597023fec0aef",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "49d00b2d9821d9b8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "f9bd0bc5b7021533",
+    "type": "split",
+    "children": [
+      {
+        "id": "15ff67d23fc23b64",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c151e6ad802f361a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b516bd07a81c0918",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c586a3ae261ffb9b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "ea9bcdffc4fedcac",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "36a6ac8461a74ed0",
+  "lastOpenFiles": [
+    "Pasted image 20230926113701.png",
+    "Pasted image 20230926113648.png",
+    "5G基站.jpg",
+    "ARS-API.md",
+    "README.md",
+    "README.md.md",
+    "Pasted image 20230926112415.png",
+    "附件/Pasted image 20230926113034.png",
+    "附件/Pasted image 20230926112650.png",
+    "附件/Pasted image 20230926112607.png",
+    "附件/Pasted image 20230926112442.png",
+    "附件/Pasted image 20230926112415.png",
+    "附件/图片1 1.png",
+    "附件/5G架构图.drawio.png",
+    "附件",
+    "新建文件夹",
+    "ABROV参考文档.md"
+  ]
+}
