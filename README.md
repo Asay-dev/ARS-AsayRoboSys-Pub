@@ -25,7 +25,7 @@
 网络结构:
 ![](img/5G架构图.drawio.png)
 通信系统:
-![](img/X220516 ROV5G岸基系统示意图.png)
+![](img/X220516%20ROV5G岸基系统示意图.png)
 # 硬件
 ## Pixhawk 2.4.8 飞控
 ![](img/pix.png)
