@@ -12,6 +12,9 @@
 1. 插路由器后台查看
 2. 下载ip扫描器扫描: https://www.advanced-ip-scanner.com/cn/
 
+## 下载软件
++ API版-QGC: http://qgroundcontrol.com/
++ 定制版: 询问客服定制软件界面
 ## ssh连接机器
 1. 下载ssh工具: https://mobaxterm.mobatek.net/
 2. 连接到上面查找到的IP
@@ -30,6 +33,10 @@
 开放接口	开放要求功能点的控制接口
 
 # 总体架构
+
+硬件架构(接线图):
+
+![MOS电源管理架构图](E:\01WorkSpace\asayBROV-CTF\架构图\MOS电源管理架构图.png)
 
 软件架构：
 ![](img/图片1.png)
