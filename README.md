@@ -10,16 +10,40 @@
 + [比赛说明书](比赛说明书参考.md)
 
 # 目录
+<!-- TOC -->
 
-[TOC]
+- [ABROV参考文档](#abrov%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
+- [目录](#%E7%9B%AE%E5%BD%95)
+- [总体架构](#%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84)
+    - [硬件架构接线图:](#%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%8E%A5%E7%BA%BF%E5%9B%BE)
+    - [软件架构：](#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84)
+    - [硬件架构：](#%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84)
+    - [网络结构:](#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84)
+    - [通信系统:](#%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F)
+    - [AI目标检测系统示意图](#ai%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F%E7%A4%BA%E6%84%8F%E5%9B%BE)
+    - [BCM2837主控原理图:](#bcm2837%E4%B8%BB%E6%8E%A7%E5%8E%9F%E7%90%86%E5%9B%BE)
+- [硬件](#%E7%A1%AC%E4%BB%B6)
+    - [Pixhawk 2.4.8 飞控](#pixhawk-248-%E9%A3%9E%E6%8E%A7)
+    - [树莓派](#%E6%A0%91%E8%8E%93%E6%B4%BE)
+    - [MCU](#mcu)
+    - [G模块](#g%E6%A8%A1%E5%9D%97)
+    - [传感器单元](#%E4%BC%A0%E6%84%9F%E5%99%A8%E5%8D%95%E5%85%83)
+        - [深度传感器MS5837](#%E6%B7%B1%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8ms5837)
+    - [运动控制单元](#%E8%BF%90%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8D%95%E5%85%83)
+- [通信系统](#%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F)
+- [算法](#%E7%AE%97%E6%B3%95)
+    - [AI目标识别](#ai%E7%9B%AE%E6%A0%87%E8%AF%86%E5%88%AB)
+        - [海洋垃圾监测](#%E6%B5%B7%E6%B4%8B%E5%9E%83%E5%9C%BE%E7%9B%91%E6%B5%8B)
+        - [机械臂移动与抓取](#%E6%9C%BA%E6%A2%B0%E8%87%82%E7%A7%BB%E5%8A%A8%E4%B8%8E%E6%8A%93%E5%8F%96)
+        - [完整项目](#%E5%AE%8C%E6%95%B4%E9%A1%B9%E7%9B%AE)
+- [理论支持](#%E7%90%86%E8%AE%BA%E6%94%AF%E6%8C%81)
+    - [Yolov5网络结构图](#yolov5%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E5%9B%BE)
 
-
+<!-- /TOC -->
 
 # 总体架构
-
 ## 硬件架构(接线图):
-
-![MOS电源管理架构图](E:\01WorkSpace\asayBROV-CTF\架构图\MOS电源管理架构图.png)
+![](img/MOS电源管理架构图.png)
 
 ## 软件架构：
 ![](img/图片1.png)
@@ -31,13 +55,10 @@
 ## 通信系统:
 ![](img/X220516%20ROV5G岸基系统示意图.png)
 
-## ROV AI目标检测系统示意图
-
-![image-20230929232612710](C:\Users\14579\AppData\Roaming\Typora\typora-user-images\image-20230929232612710.png)
-
+## AI目标检测系统示意图
+![](Pasted%20image%2020230929234945.png)
 ## BCM2837主控原理图:
-
-![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps7.jpg)
+![](Pasted%20image%2020230929234958.png)
 
 # 硬件
 ## Pixhawk 2.4.8 飞控
@@ -90,21 +111,13 @@ I2C总线上的每一个设备都对应一个唯一的地址,主设备在传输�
 ### 海洋垃圾监测
 
 ​	使用YOLOV5自主训练海洋垃圾数据集, 使用3080显卡,共训练上千epochs, 使用基础权重为yolov5l.pt, 如下为训练过程:
-
-![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps1.jpg) 
-
+![](Pasted%20image%2020230929235039.png)
 Tensor board训练过程如下, 随着epochs的增加, AI的mAP_0.5也在持续上升, 但是当epochs的数量超过400时, 整个AI的mAP_0.5反倒开始下降, 此时说明整个模型weights处于过拟合的状态, 需要增加更多数据集。如下图6所示:
-
-![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps2.jpg) 
-
+![](Pasted%20image%2020230929235046.png)
 图6 Tensor board训练过程
-
-![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps3.jpg) 
-
+![](Pasted%20image%2020230929235050.png)
 图7是所有epochs训练完成之后, 使用视频对训练效果进行验证, 所使用的conf 0.7, 从视频中明显看出, 由于海洋垃圾的数据量多, 所以对于海洋垃圾的检测十分准确且一直没有丢失, 反倒对于生物和ROV的检测由于数据量少, 检测容易出错和丢失。如下图7, 海洋垃圾检测效果十分出色
-
-![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps4.png) 
-
+![](Pasted%20image%2020230929235053.png)
 图7海洋垃圾检测效果十分出色
 
 摄像头通过BCM2837推流图像信息到控制端, 控制端pytorch服务会拉取视频流并进行处理, 将处理后的结果输出显示到监视器。Pytorch运行的yolov5服务会对图像中的海洋垃圾、生物、ROV进行分类识别。协助完成海洋垃圾的分拣工作, 还给海洋干净。
@@ -112,15 +125,12 @@ Tensor board训练过程如下, 随着epochs的增加, AI的mAP_0.5也在持续�
 ### 机械臂移动与抓取
 
 通过遥控器控制机械臂的俯仰角度和机械臂的抓取, 机械臂的俯仰角度在500-2200之间。机械臂的抓取也在500-2200之间。在完成AI目标检测之后, 控制机器人靠近, 然后调整机械臂的俯仰角度进行抓取, 抓取后可以放下机械臂, 避免遮挡ROV的水下视线。
-
- ![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps5.png)
-
+![](Pasted%20image%2020230929235101.png)
 ***\*图17\**** ***\*AI目标检测机械臂抓取效果图\****
 
 ### 完整项目
-
-![image-20230929233021550](C:\Users\14579\AppData\Roaming\Typora\typora-user-images\image-20230929233021550.png)
-
++ 询问客服
+![](Pasted%20image%2020230929235114.png)
 # 理论支持
 
 ## Yolov5网络结构图
@@ -136,9 +146,7 @@ YOLOv5是一种单阶段目标检测算法，该算法在YOLOv4的基础上添�
 Neck网络：目标检测网络在BackBone与最后的Head输出层之间往往会插入一些层，Yolov5中添加了FPN+PAN结构；
 
 Head输出层：输出层的锚框机制与YOLOv4相同，主要改进的是训练时的损失函数GIOU_Loss，以及预测框筛选的DIOU_nms。
-
-![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps6.jpg) 
-
+![](Pasted%20image%2020230929235117.png)
 上图展示了YOLOv5目标检测算法的整体框图。对于一个目标检测算法而言，我们通常可以将其划分为4个通用的模块，具体包括：输入端、基准网络、Neck网络与Head输出端，对应于上图中的4个红色模块。YOLOv5算法具有4个版本，具体包括：YOLOv5s、YOLOv5m、YOLOv5l、YOLOv5x四种，本文重点讲解YOLOv5s，其它的版本都在该版本的基础上对网络进行加深与加宽。
 
  

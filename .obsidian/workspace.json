@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f9bd0bc5b7021533",
@@ -149,20 +148,20 @@
   },
   "active": "36a6ac8461a74ed0",
   "lastOpenFiles": [
-    "Pasted image 20230926113701.png",
-    "Pasted image 20230926113648.png",
-    "5G基站.jpg",
-    "ARS-API.md",
+    "img/Pasted image 20230929235117.png",
+    "img/Pasted image 20230929235114.png",
+    "img/Pasted image 20230929235101.png",
+    "img/Pasted image 20230929235053.png",
+    "img/Pasted image 20230929235050.png",
+    "img/Pasted image 20230929235046.png",
+    "img/Pasted image 20230929235039.png",
+    "img/Pasted image 20230929235016.png",
+    "img/Pasted image 20230929234958.png",
+    "img/Pasted image 20230929234945.png",
+    "img/Pasted image 20230929234155.png",
     "README.md",
+    "ARS-API.md",
     "README.md.md",
-    "Pasted image 20230926112415.png",
-    "附件/Pasted image 20230926113034.png",
-    "附件/Pasted image 20230926112650.png",
-    "附件/Pasted image 20230926112607.png",
-    "附件/Pasted image 20230926112442.png",
-    "附件/Pasted image 20230926112415.png",
-    "附件/图片1 1.png",
-    "附件/5G架构图.drawio.png",
     "附件",
     "新建文件夹",
     "ABROV参考文档.md"
