@@ -15,12 +15,52 @@
 ## 下载软件
 + API版-QGC: http://qgroundcontrol.com/
 + 定制版: 询问客服定制软件界面
-## ssh连接机器
+
+## 网络设置
+
+1. 窗口**控制面板**选择**网络与共享中心**. 如果您没有看到“网络和共享中心”，请将“**查看由**选项到大或小的图标。
+
+![brov2-windows-network-setup-1](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-1.png)
+
+2. 在“网络和共享中心”窗口中，选择**更改适配器设置**.
+
+![brov2-windows-network-setup-2](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-2.png)
+
+3. 以太网适配器，右键单击此以太网适配器，然后选择**属性**.
+
+![brov2-windows-network-setup-3](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-3.png)
+
+4. 在属性对话框中，点击**互联网协议版本4（TCP/IPv4）**来突出显示它，然后点击**属性**.
+
+![brov2-windows-network-setup-4](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-4.png)
+
+5. 选择使用以下IP地址**192.168.2.1**为IP地址和**255.255.255.0**子网掩码。选择OK，然后您可以关闭其余的窗口。
+
+![brov2-windows-network-setup-5](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-5.png)
+
+## 防火墙
+
+1. **控制面板**然后选择**Windows Defender防火墙**. 如果您没有看到Windows Defender防火墙，请更改**查看由**选项到大或小的图标。
+
+![brov2-firewall-setup-1](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-firewall-setup-1.png)
+
+2. 选择“允许应用程序或功能通过Windows Defender防火墙”.
+
+![brov2-firewall-setup-2](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-firewall-setup-2.png)
+
+2. 选择**更改设置**，在应用列表中找到“QGroundControl开发团队提供的开源地面控制应用程序”或“QGroundControl”。旁边的框中选中后点OK.
+
+![brov2-firewall-setup-3](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-firewall-setup-3.png)
+
+
+
+## API版本和定制机器 ssh连接机器
 1. 下载ssh工具: https://mobaxterm.mobatek.net/
 2. 连接到上面查找到的IP
 3. 账号密码问客服
 
-## 启动服务
+### 启动服务
+
 1. 编辑 `config` 文件, 将 `client_address` 设置为上位机的 ip 地址
 2. `sudo ./ARS` 启动(版本不同名字不同 `ls` 查看)
 
