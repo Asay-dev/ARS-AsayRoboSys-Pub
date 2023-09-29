@@ -2,91 +2,43 @@
 
 *每台机器根据客户要求不一样, 请参考自己的设备包含的部分*
 
-**文档内容仅供技术参考, 可完整实现;  非本公司实际使用技术. 不要根据这个参考改装机器
+**文档内容仅供技术参考, 理论可完整实现;  非本公司实际使用技术. 不要根据这个参考改装机器
 
++ [开机配置](开机配置.md)
++ [API&定制版说明](API&定制版说明.md)
 + [API接口文档](ARS-API.md)
 + [比赛说明书](比赛说明书参考.md)
 
-# 开机配置
-## 找到机器的IP
-1. 插路由器后台查看
-2. 下载ip扫描器扫描: https://www.advanced-ip-scanner.com/cn/
+# 目录
 
-## 下载软件
-+ API版-QGC: http://qgroundcontrol.com/
-+ 定制版: 询问客服定制软件界面
-
-## 网络设置
-
-1. 窗口**控制面板**选择**网络与共享中心**. 如果您没有看到“网络和共享中心”，请将“**查看由**选项到大或小的图标。
-
-![brov2-windows-network-setup-1](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-1.png)
-
-2. 在“网络和共享中心”窗口中，选择**更改适配器设置**.
-
-![brov2-windows-network-setup-2](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-2.png)
-
-3. 以太网适配器，右键单击此以太网适配器，然后选择**属性**.
-
-![brov2-windows-network-setup-3](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-3.png)
-
-4. 在属性对话框中，点击**互联网协议版本4（TCP/IPv4）**来突出显示它，然后点击**属性**.
-
-![brov2-windows-network-setup-4](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-4.png)
-
-5. 选择使用以下IP地址**192.168.2.1**为IP地址和**255.255.255.0**子网掩码。选择OK，然后您可以关闭其余的窗口。
-
-![brov2-windows-network-setup-5](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-windows-network-setup-5.png)
-
-## 防火墙
-
-1. **控制面板**然后选择**Windows Defender防火墙**. 如果您没有看到Windows Defender防火墙，请更改**查看由**选项到大或小的图标。
-
-![brov2-firewall-setup-1](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-firewall-setup-1.png)
-
-2. 选择“允许应用程序或功能通过Windows Defender防火墙”.
-
-![brov2-firewall-setup-2](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-firewall-setup-2.png)
-
-2. 选择**更改设置**，在应用列表中找到“QGroundControl开发团队提供的开源地面控制应用程序”或“QGroundControl”。旁边的框中选中后点OK.
-
-![brov2-firewall-setup-3](https://bluerobotics.com/wp-content/uploads/2016/06/brov2-firewall-setup-3.png)
+[TOC]
 
 
-
-## API版本和定制机器 ssh连接机器
-1. 下载ssh工具: https://mobaxterm.mobatek.net/
-2. 连接到上面查找到的IP
-3. 账号密码问客服
-
-### 启动服务
-
-1. 编辑 `config` 文件, 将 `client_address` 设置为上位机的 ip 地址
-2. `sudo ./ARS` 启动(版本不同名字不同 `ls` 查看)
-
-# 使用场景描述
-
-使用场景	场景描述
-远程遥控	实现机器人的LTE网络下的遥控
-水下运动	实现水下推进器运动
-机械臂遥控	实现水下机械臂的遥控
-开放接口	开放要求功能点的控制接口
 
 # 总体架构
 
-硬件架构(接线图):
+## 硬件架构(接线图):
 
 ![MOS电源管理架构图](E:\01WorkSpace\asayBROV-CTF\架构图\MOS电源管理架构图.png)
 
-软件架构：
+## 软件架构：
 ![](img/图片1.png)
 
-硬件架构：
+## 硬件架构：
 ![](img/图片11.png)
-网络结构:
+## 网络结构:
 ![](img/5G架构图.drawio.png)
-通信系统:
+## 通信系统:
 ![](img/X220516%20ROV5G岸基系统示意图.png)
+
+## ROV AI目标检测系统示意图
+
+![image-20230929232612710](C:\Users\14579\AppData\Roaming\Typora\typora-user-images\image-20230929232612710.png)
+
+## BCM2837主控原理图:
+
+![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps7.jpg)
+
 # 硬件
 ## Pixhawk 2.4.8 飞控
 ![](img/pix.png)
@@ -135,3 +87,66 @@ I2C总线上的每一个设备都对应一个唯一的地址,主设备在传输�
 # 算法
 ## AI目标识别
 
+### 海洋垃圾监测
+
+​	使用YOLOV5自主训练海洋垃圾数据集, 使用3080显卡,共训练上千epochs, 使用基础权重为yolov5l.pt, 如下为训练过程:
+
+![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps1.jpg) 
+
+Tensor board训练过程如下, 随着epochs的增加, AI的mAP_0.5也在持续上升, 但是当epochs的数量超过400时, 整个AI的mAP_0.5反倒开始下降, 此时说明整个模型weights处于过拟合的状态, 需要增加更多数据集。如下图6所示:
+
+![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps2.jpg) 
+
+图6 Tensor board训练过程
+
+![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps3.jpg) 
+
+图7是所有epochs训练完成之后, 使用视频对训练效果进行验证, 所使用的conf 0.7, 从视频中明显看出, 由于海洋垃圾的数据量多, 所以对于海洋垃圾的检测十分准确且一直没有丢失, 反倒对于生物和ROV的检测由于数据量少, 检测容易出错和丢失。如下图7, 海洋垃圾检测效果十分出色
+
+![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps4.png) 
+
+图7海洋垃圾检测效果十分出色
+
+摄像头通过BCM2837推流图像信息到控制端, 控制端pytorch服务会拉取视频流并进行处理, 将处理后的结果输出显示到监视器。Pytorch运行的yolov5服务会对图像中的海洋垃圾、生物、ROV进行分类识别。协助完成海洋垃圾的分拣工作, 还给海洋干净。
+
+### 机械臂移动与抓取
+
+通过遥控器控制机械臂的俯仰角度和机械臂的抓取, 机械臂的俯仰角度在500-2200之间。机械臂的抓取也在500-2200之间。在完成AI目标检测之后, 控制机器人靠近, 然后调整机械臂的俯仰角度进行抓取, 抓取后可以放下机械臂, 避免遮挡ROV的水下视线。
+
+ ![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps5.png)
+
+***\*图17\**** ***\*AI目标检测机械臂抓取效果图\****
+
+### 完整项目
+
+![image-20230929233021550](C:\Users\14579\AppData\Roaming\Typora\typora-user-images\image-20230929233021550.png)
+
+# 理论支持
+
+## Yolov5网络结构图
+
+YOLOv5是一种单阶段目标检测算法，该算法在YOLOv4的基础上添加了一些新的改进思路，使其速度与精度都得到了极大的性能提升。主要的改进思路如下所示：
+
+ 
+
+输入端：在模型训练阶段，提出了一些改进思路，主要包括Mosaic数据增强、自适应锚框计算、自适应图片缩放；
+
+基准网络：融合其它检测算法中的一些新思路，主要包括：Focus结构与CSP结构；
+
+Neck网络：目标检测网络在BackBone与最后的Head输出层之间往往会插入一些层，Yolov5中添加了FPN+PAN结构；
+
+Head输出层：输出层的锚框机制与YOLOv4相同，主要改进的是训练时的损失函数GIOU_Loss，以及预测框筛选的DIOU_nms。
+
+![img](file:///C:\Users\14579\AppData\Local\Temp\ksohtml30092\wps6.jpg) 
+
+上图展示了YOLOv5目标检测算法的整体框图。对于一个目标检测算法而言，我们通常可以将其划分为4个通用的模块，具体包括：输入端、基准网络、Neck网络与Head输出端，对应于上图中的4个红色模块。YOLOv5算法具有4个版本，具体包括：YOLOv5s、YOLOv5m、YOLOv5l、YOLOv5x四种，本文重点讲解YOLOv5s，其它的版本都在该版本的基础上对网络进行加深与加宽。
+
+ 
+
+输入端-输入端表示输入的图片。该网络的输入图像大小为608*608，该阶段通常包含一个图像预处理阶段，即将输入图像缩放到网络的输入大小，并进行归一化等操作。在网络训练阶段，YOLOv5使用Mosaic数据增强操作提升模型的训练速度和网络的精度；并提出了一种自适应锚框计算与自适应图片缩放方法。
+
+基准网络-基准网络通常是一些性能优异的分类器种的网络，该模块用来提取一些通用的特征表示。YOLOv5中不仅使用了CSPDarknet53结构，而且使用了Focus结构作为基准网络。
+
+Neck网络-Neck网络通常位于基准网络和头网络的中间位置，利用它可以进一步提升特征的多样性及鲁棒性。虽然YOLOv5同样用到了SPP模块、FPN+PAN模块，但是实现的细节有些不同。
+
+Head输出端-Head用来完成目标检测结果的输出。针对不同的检测算法，输出端的分支个数不尽相同，通常包含一个分类分支和一个回归分支。YOLOv4利用GIOU_Loss来代替Smooth L1 Loss函数，从而进一步提升算法的检测精度

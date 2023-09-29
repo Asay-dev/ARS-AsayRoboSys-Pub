@@ -1,41 +1,5 @@
-# 系统
-+ 不一定都是
-```shell
-Linux version 5.15.0-1037-raspi (buildd@bos01-arm64-035) (gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #40-Ubuntu SMP PREEMPT Fri Aug 25 16:42:00 UTC 2023
-
-Linux ubuntu 5.15.0-1037-raspi #40-Ubuntu SMP PREEMPT Fri Aug 25 16:42:00 UTC 2023 aarch64 aarch64 aarch64 GNU/Linux
-
-No LSB modules are available.
-Distributor ID: Ubuntu
-Description:    Ubuntu 22.04.3 LTS
-Release:        22.04
-Codename:       jammy
-```
-
-# 设置
-**主机计算机设置**
-
-_关闭全部防火墙_
-
-**设置Internet共享（仅限以太网/ Fathom-X Tether接口）**
-
-· 在基于以太网的设置中，Raspberry Pi默认为IP地址192.168.2.2。
-
-· 该主机必须设置为192.168.2.1的IP地址，以便接收通信和视频。
-
-· 请参阅以下说明：
-
-**Windows**
-· 转到控制面板>网络和Internet>网络连接，然后右键单击以太网适配器，然后选择属性。
-
-· 在属性对话框中，选择Internet协议版本4（TCP / IPv4），然后单击属性。  
-![](file:///C:\Users\14579\AppData\Local\Temp\ksohtml36652\wps1.jpg)
-
-· 在下一个对话框中，输入192.168.2.1作为计算机的IP地址。输入255.255.255.0作为子网掩码。  
-![](file:///C:\Users\14579\AppData\Local\Temp\ksohtml36652\wps2.jpg)
-
 # 登录
-+ 账号: _ubuntu_
++ 账号: _asaydev_
 + 密码: _asaydev.com_
 *登录不上联系客服, 账号根据您要求的系统可能有所不同*
 
@@ -53,8 +17,6 @@ _关闭全部防火墙_
 """
 如何通过UDP连接将pymavlink连接到自动驾驶仪的示例
 """
-
-
 import time
 from pymavlink import mavutil
 
@@ -112,7 +74,6 @@ master.motors_disarmed_wait()
 """
 如何使用pymavlink更改飞行模式的示例
 """
-
 import sys
 from pymavlink import mavutil
 
@@ -163,7 +124,6 @@ while True:
 发送MANUAL_CONTROL消息到自动驾驶仪的示例
 此消息能够完全取代操纵杆输入。
 """
-
 # Import mavutil
 from pymavlink import mavutil
 
@@ -203,7 +163,6 @@ master.mav.manual_control_send(
 """
 如何使用pymavlink直接控制Pixhawk伺服输出的示例。
 """
-
 import time
 # Import mavutil
 from pymavlink import mavutil
@@ -238,7 +197,6 @@ for us in range(1100, 1900, 50):
 ## 设置目标深度和姿态
 ```python
 # 示例：如何在深度保持模式下使用pymavlink设置目标深度
-
 import time
 import math
 # 导入 mavutil 模块
@@ -338,10 +296,8 @@ master.motors_disarmed_wait()
 """
 如何使用pymavlink从自动驾驶仪读取所有参数的示例
 """
-
 # 禁用“Broad exception”警告
 # pylint: disable=W0703
-
 import time
 import sys
 
