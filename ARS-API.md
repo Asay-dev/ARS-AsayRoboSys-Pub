@@ -11,6 +11,11 @@
 
 + *ARS* 默认上位机`192.168.2.1:14550` 视频`192.168.2.1:5600`
 
+# 安装库
+```shell
+pip install numpy pymavlink zmq
+```
+
 ## 连接
 
 ```python
