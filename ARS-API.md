@@ -17,6 +17,8 @@ pip install numpy pymavlink zmq
 ```
 
 ## 连接
++ 在机器人上运行代码: ip地址 127.0.0.1:14550
++ 在上位机运行代码:   ip地址 上位机IP:14550
 
 ```python
 """
