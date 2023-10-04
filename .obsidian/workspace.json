@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "开机配置.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "开机配置.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "开机配置.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "开机配置.md"
               }
             }
           }
@@ -148,6 +148,8 @@
   },
   "active": "36a6ac8461a74ed0",
   "lastOpenFiles": [
+    "img/配置过程.png",
+    "README.md",
     "img/Pasted image 20230929235117.png",
     "img/Pasted image 20230929235114.png",
     "img/Pasted image 20230929235101.png",
@@ -158,8 +160,6 @@
     "img/Pasted image 20230929235016.png",
     "img/Pasted image 20230929234958.png",
     "img/Pasted image 20230929234945.png",
-    "img/Pasted image 20230929234155.png",
-    "README.md",
     "ARS-API.md",
     "README.md.md",
     "附件",
