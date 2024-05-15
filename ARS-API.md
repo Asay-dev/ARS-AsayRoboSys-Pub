@@ -166,6 +166,55 @@ master.mav.manual_control_send(
     buttons)
 ```
 
+## 相机云台控制
+
+```python
+"""
+使用 pymavlink 控制摄像头云台的示例
+"""
+
+import time
+# 导入 mavutil 模块
+from pymavlink import mavutil
+
+# 创建连接
+master = mavutil.mavlink_connection('udpin:0.0.0.0:14550')
+# 在发送命令之前等待一个心跳信号
+master.wait_heartbeat()
+
+
+def look_at(tilt, roll=0, pan=0):
+    """
+    移动云台到给定位置
+    参数:
+        tilt (float): 俯仰角度，以百分度为单位（0 表示向前）
+        roll (float, 可选): 横滚角度，以百分度为单位（0 表示向前）
+        pan  (float, 可选): 偏航角度，以百分度为单位（0 表示向前）
+    """
+    master.mav.command_long_send(
+        master.target_system,
+        master.target_component,
+        mavutil.mavlink.MAV_CMD_DO_MOUNT_CONTROL,
+        1,
+        tilt,
+        roll,
+        pan,
+        0, 0, 0,
+        mavutil.mavlink.MAV_MOUNT_MODE_MAVLINK_TARGETING)
+
+
+# 循环上下移动摄像头
+while True:
+    for angle in range(-50, 50):
+        look_at(angle * 100)
+        time.sleep(0.1)
+    for angle in range(-50, 50):
+        look_at(-angle * 100)
+        time.sleep(0.1)
+
+```
+
+
 ## 设置 Servo PWM
 ```python
 """
