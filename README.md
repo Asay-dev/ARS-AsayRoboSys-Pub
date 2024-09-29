@@ -12,12 +12,13 @@ https://www.douyin.com/user/self?modal_id=7340900808516504858
 + [开机配置](开机配置.md)
 + [API&定制版说明](API&定制版说明.md)
 + [API接口文档](ARS-API.md)
+
 <!-- TOC -->
-## 
-+ [参数-ROV-框架式](ROV框架式参数.md)
 
 - [ABROV参考文档](#abrov%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3)
 - [总体架构](#%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84)
+    - [OTPS电源架构:](#otps%E7%94%B5%E6%BA%90%E6%9E%B6%E6%9E%84)
+    - [DWI无线浮漂方案架构:](#dwi%E6%97%A0%E7%BA%BF%E6%B5%AE%E6%BC%82%E6%96%B9%E6%A1%88%E6%9E%B6%E6%9E%84)
     - [硬件架构接线图:](#%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%8E%A5%E7%BA%BF%E5%9B%BE)
     - [软件架构：](#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84)
     - [硬件架构：](#%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84)
@@ -41,13 +42,20 @@ https://www.douyin.com/user/self?modal_id=7340900808516504858
         - [完整项目](#%E5%AE%8C%E6%95%B4%E9%A1%B9%E7%9B%AE)
 - [理论支持](#%E7%90%86%E8%AE%BA%E6%94%AF%E6%8C%81)
     - [Yolov5网络结构图](#yolov5%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E5%9B%BE)
+- [参数](#%E5%8F%82%E6%95%B0)
+    - [参数-ROV-框架式](#%E5%8F%82%E6%95%B0-rov-%E6%A1%86%E6%9E%B6%E5%BC%8F)
+    - [规格](#%E8%A7%84%E6%A0%BC)
+    - [系统要求](#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82)
+    - [D 图纸](#d-%E5%9B%BE%E7%BA%B8)
 
 <!-- /TOC -->
-<!-- /TOC -->
-<!-- /TOC -->
-<!-- /TOC -->
+
 
 # 总体架构
+## OTPS电源架构:
+![](OTPS电源架构.png)
+## DWI无线浮漂方案架构:
+![](DWI无线浮漂方案架构.png)
 ## 硬件架构(接线图):
 ![](img/MOS电源管理架构图.png)
 
