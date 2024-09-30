@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "比赛说明书参考.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "比赛说明书参考.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "比赛说明书参考.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "比赛说明书参考.md"
               }
             }
           }
@@ -148,20 +148,22 @@
   },
   "active": "36a6ac8461a74ed0",
   "lastOpenFiles": [
+    "检修手册.md",
+    "比赛说明书参考.md",
+    "开机配置.md",
+    "ARS-API.md",
+    "API&定制版说明.md",
+    "手柄.drawio.png",
+    "README.md",
     "img/DWI无线浮漂方案架构.png",
     "img/OTPS电源架构.png",
-    "开机配置.md",
     "img/配置过程.png",
-    "README.md",
     "img/Pasted image 20230929235117.png",
     "img/Pasted image 20230929235114.png",
     "img/Pasted image 20230929235101.png",
     "img/Pasted image 20230929235053.png",
     "img/Pasted image 20230929235050.png",
     "img/Pasted image 20230929235046.png",
-    "img/Pasted image 20230929235039.png",
-    "img/Pasted image 20230929235016.png",
-    "ARS-API.md",
     "README.md.md",
     "附件",
     "新建文件夹",
