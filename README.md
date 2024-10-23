@@ -53,9 +53,9 @@ https://www.douyin.com/user/self?modal_id=7340900808516504858
 
 # 总体架构
 ## OTPS电源架构:
-![](OTPS电源架构.png)
+![](img/OTPS电源架构.png)
 ## DWI无线浮漂方案架构:
-![](DWI无线浮漂方案架构.png)
+![](img/DWI无线浮漂方案架构.png)
 ## 硬件架构(接线图):
 ![](img/MOS电源管理架构图.png)
 
