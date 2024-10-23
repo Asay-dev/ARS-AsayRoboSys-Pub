@@ -9,7 +9,8 @@ https://www.douyin.com/user/self?modal_id=7340900808516504858
 
 **文档内容仅供技术参考, 理论可完整实现;  非本公司实际使用技术. 不要根据这个参考改装机器
 
-+ [开机配置](开机配置.md)
++ [DWIHub版开机配置(适合有DWIHub的用户)](DWIHub版开机配置.md)
++ [开机配置(适合无DWIHub的用户)](开机配置.md)
 + [API&定制版说明](API&定制版说明.md)
 + [API接口文档](ARS-API.md)
 
