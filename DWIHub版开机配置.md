@@ -35,18 +35,18 @@
 
 + 开启手柄
 
-![alt text](image.png)
+![alt text](img/image.png)
 
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 
 1. 手柄选项, 开启手柄打钩
 
 2. 手柄说明, 操作需要先解锁电机
 
-![手柄说明](手柄.drawio.png)
+![手柄说明](img/手柄.drawio.png)
 
 # QGC说明
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 
 + Manual - 手动模式允许操作员直接控制航行器的推进器，没有任何自动稳定或自动控制干预。
 
