@@ -15,7 +15,7 @@
 
 ## 网络设置
 进入网络设置, 确保处于专用网络模式, 确保防火墙关闭
-![alt text](image-3.png)
+![alt text](./img/image-3.png)
 
 ## 防火墙
 
@@ -35,18 +35,18 @@
 
 + 开启手柄
 
-![alt text](img/image.png)
+![alt text](./img/image.png)
 
-![alt text](img/image-1.png)
+![alt text](./img/image-1.png)
 
 1. 手柄选项, 开启手柄打钩
 
 2. 手柄说明, 操作需要先解锁电机
 
-![手柄说明](img/手柄.drawio.png)
+![手柄说明](./img/手柄.drawio.png)
 
 # QGC说明
-![alt text](img/image-2.png)
+![alt text](./img/image-2.png)
 
 + Manual - 手动模式允许操作员直接控制航行器的推进器，没有任何自动稳定或自动控制干预。
 
