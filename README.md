@@ -1,6 +1,6 @@
 # ABROV参考文档
 
-![](img/抖音码.jpg)
+<!-- ![](img/抖音码.jpg) -->
 https://www.douyin.com/user/self?modal_id=7340900808516504858
 
 微信: asaytech
