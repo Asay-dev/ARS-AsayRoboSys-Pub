@@ -7,20 +7,31 @@
 
 # 接口
 
-+ *DWIRoboSys*     可执行文件是机器人的控制系统, `sudo systemctl restart drs.service`运行(默认是启动的)
-+ *config*  文件是机器人系统的配置文件, `vim config`进入修改
-+ *DRS_api* 是机器人的api接口程序
-
-+ *DRS* 默认上位机`192.168.255.1:14550` 视频`192.168.255.1:5600`
 
 # 安装库
 ```shell
-pip install numpy pymavlink zmq
+pip install numpy pymavlink zmq mavproxy
 ```
 
 ## 连接
-+ 在机器人上运行代码: ip地址 127.0.0.1:14550
-+ 在上位机运行代码:   ip地址 上位机IP:14550
++ 使用DWIAssistant工具
+
++ 修改IP地址为您的机器人IP默认192.168.255.233
+![alt text](img/01631bc38928f03f35fb2b013ff4b12.png)
+
++ 点击配置页， 加载配置
+![alt text](img/1753781974680.png)
+
++ 修改地址为二次开发的上位机地址
+![alt text](img/bff74e3c81c62ccd93ecd185366d3d2.png)
+
++ 保存配置
+![alt text](img/72e14933fd7de400c267be1b09dd743.png)
+
++ 重启机器人或者服务（以下演示重启服务）
+![alt text](img/68613ded66c157217f995a8096204d5.png)
+
++ 在上位机运行代码: 
 
 ```python
 """
@@ -29,7 +40,7 @@ pip install numpy pymavlink zmq
 import time
 from pymavlink import mavutil
 
-master = mavutil.mavlink_connection('udpin:192.168.255.233:14550')
+master = mavutil.mavlink_connection('udpin:0.0.0.0:14550')
 
 #确保连接是有效的
 master.wait_heartbeat()
@@ -49,7 +60,7 @@ Example of how to Arm and Disarm an Autopilot with pymavlink
 """
 from pymavlink import mavutil
 
-master = mavutil.mavlink_connection('udpin:192.168.255.233:14550')
+master = mavutil.mavlink_connection('udpin:0.0.0.0:14550')
 master.wait_heartbeat()
 
 # 解锁电机
@@ -87,7 +98,7 @@ import sys
 from pymavlink import mavutil
 
 # 创建连接
-master = mavutil.mavlink_connection('udpin:192.168.255.233:14550')
+master = mavutil.mavlink_connection('udpin:0.0.0.0:14550')
 # 发送命令前等待心跳
 master.wait_heartbeat()
 
@@ -137,7 +148,7 @@ while True:
 from pymavlink import mavutil
 
 # 创建连接
-master = mavutil.mavlink_connection('udpin:192.168.255.233:14550')
+master = mavutil.mavlink_connection('udpin:0.0.0.0:14550')
 # 请等待心跳后再发送命令
 master.wait_heartbeat()
 
@@ -242,7 +253,7 @@ def set_servo_pwm(servo_n, microseconds):
     )
 
 # 创建连接
-master = mavutil.mavlink_connection('udpin:192.168.255.233:14550')
+master = mavutil.mavlink_connection('udpin:0.0.0.0:14550')
 # 请等待心跳后再发送命令
 master.wait_heartbeat()
 
@@ -313,7 +324,7 @@ def set_target_attitude(roll, pitch, yaw):
     )
 
 # 创建连接
-master = mavutil.mavlink_connection('udpin:192.168.255.233:14550')
+master = mavutil.mavlink_connection('udpin:0.0.0.0:14550')
 boot_time = time.time()
 # 在发送命令之前等待心跳信号
 master.wait_heartbeat()
@@ -364,7 +375,7 @@ from pymavlink import mavutil
 
 
 # 创建连接
-master = mavutil.mavlink_connection('udpin:192.168.255.233:14550')
+master = mavutil.mavlink_connection('udpin:0.0.0.0:14550')
 # 请等待心跳后再发送命令
 master.wait_heartbeat()
 
