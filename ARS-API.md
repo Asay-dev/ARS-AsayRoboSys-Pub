@@ -10,10 +10,10 @@
 
 # 安装库
 ```shell
-pip install numpy pymavlink zmq mavproxy
+pip install numpy pymavlink mavproxy
 ```
 
-## 连接
+## 连接(如果您有 DWIOs 联系客服使用 DWIOs 面板)
 + 使用DWIAssistant工具
 
 + 修改IP地址为您的机器人IP默认192.168.255.233
@@ -31,7 +31,9 @@ pip install numpy pymavlink zmq mavproxy
 + 重启机器人或者服务（以下演示重启服务）
 ![alt text](img/68613ded66c157217f995a8096204d5.png)
 
-+ 在上位机运行代码: 
+# 在上位机运行代码测试
+
+以下代码运行后跳出无人机数据则为正常🎉
 
 ```python
 """
