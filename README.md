@@ -11,11 +11,11 @@ https://www.douyin.com/user/self?modal_id=7340900808516504858
 
 # !! 官网 https://www.dwirobo.tech/app/
 # !! 开机教程 https://www.dwirobo.tech/dwii-%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e/
+# [API接口文档/源代码](ARS-API.md)
+
 ## !! [(停用, 仅作参考)DWIHub版开机配置(适合有DWIHub的用户)](DWIHub版开机配置.md)
 ## !! [(停用, 仅作参考)开机配置(适合无DWIHub的用户)](开机配置.md)
-
-# [API&定制版说明](API&定制版说明.md)
-# [API接口文档](ARS-API.md)
+## [(停用, 仅作参考)API&定制版说明](API&定制版说明.md)
 
 # 总体架构
 ## OTPS电源架构:
