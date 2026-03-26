@@ -18,7 +18,30 @@ jobs:
       - name: 安装 Pandoc + XeLaTeX + 中文字体
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex texlive-lang-chinese fonts-noto-cjk
+          sudo apt-get install -y pandoc texlive-xetex texlive-lang-chinese texlive-latex-extra fonts-noto-cjk
+
+      - name: 创建页眉页脚水印配置
+        run: |
+          python3 << 'PYEOF'
+          import os
+          logo = os.getcwd() + "/img/DWI-white-logo.png"
+          lines = [
+              "\\usepackage{graphicx}",
+              "\\usepackage{fancyhdr}",
+              "\\usepackage{background}",
+              "\\pagestyle{fancy}",
+              "\\fancyhf{}",
+              "\\fancyhead[C]{\\textbf{\\textit{DiskWorldIntelligent}}}",
+              "\\fancyfoot[C]{\\thepage}",
+              "\\renewcommand{\\headrulewidth}{0.4pt}",
+              "\\renewcommand{\\footrulewidth}{0pt}",
+              "\\fancypagestyle{plain}{\\fancyhf{}\\fancyhead[C]{\\textbf{\\textit{DiskWorldIntelligent}}}\\fancyfoot[C]{\\thepage}\\renewcommand{\\headrulewidth}{0.4pt}\\renewcommand{\\footrulewidth}{0pt}}",
+              "\\AtBeginDocument{\\pagestyle{fancy}}",
+              "\\backgroundsetup{scale=1,opacity=0.3,angle=0,contents={\\includegraphics[width=0.8\\paperwidth,keepaspectratio]{" + logo + "}}}",
+          ]
+          with open("header.tex", "w") as f:
+              f.write("\n".join(lines) + "\n")
+          PYEOF
 
       - name: 生成完整单体 PDF（自动目录 + 中文完美支持）
         run: |
@@ -36,6 +59,7 @@ jobs:
             --toc-depth=3 \
             --number-sections \
             --pdf-engine=xelatex \
+            --include-in-header=header.tex \
             --variable mainfont="Noto Sans CJK SC" \
             --variable sansfont="Noto Sans CJK SC" \
             --variable monofont="Noto Sans Mono CJK SC" \
