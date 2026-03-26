@@ -1,0 +1,50 @@
+name: 生成完整文档 PDF
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Pandoc + XeLaTeX + 中文字体（Noto CJK）
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-lang-chinese fonts-noto-cjk
+
+      - name: 生成完整单体 PDF（自动目录 + 中文完美支持）
+        run: |
+          pandoc \
+            README.md \
+            ARS-API.md \
+            "ROV框架式参数.md" \
+            "检修手册.md" \
+            "比赛说明书参考.md" \
+            "API&定制版说明.md" \
+            "DWIHub版开机配置.md" \
+            "开机配置.md" \
+            -o "ARS-AsayRoboSys-Documentation.pdf" \
+            --toc \
+            --toc-depth=3 \
+            --number-sections \
+            --pdf-engine=xelatex \
+            --variable mainfont="Noto Sans CJK SC" \
+            --variable sansfont="Noto Sans CJK SC" \
+            --variable monofont="Noto Sans Mono CJK SC" \
+            --variable geometry="margin=2cm" \
+            --variable colorlinks=true \
+            --highlight-style=tango
+
+      - name: 把最新 PDF 提交回仓库（自动更新）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "ARS-AsayRoboSys-Documentation.pdf"
+          git commit -m "docs: 自动更新完整文档 PDF" || echo "No changes to PDF"
+          git push
