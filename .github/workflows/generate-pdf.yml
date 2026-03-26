@@ -18,30 +18,33 @@ jobs:
       - name: 安装 Pandoc + XeLaTeX + 中文字体
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex texlive-lang-chinese texlive-latex-extra fonts-noto-cjk
+          sudo apt-get install -y pandoc texlive-xetex texlive-lang-chinese texlive-latex-extra fonts-noto-cjk imagemagick
+
+      - name: 生成水印图片（白底转透明 + 30% 透明度）
+        run: |
+          convert img/DWI-white-logo.png \
+            -fuzz 10% -transparent white \
+            -alpha set \
+            -channel alpha -evaluate multiply 0.3 \
+            watermark.png
 
       - name: 创建页眉页脚水印配置
         run: |
-          python3 << 'PYEOF'
-          import os
-          logo = os.getcwd() + "/img/DWI-white-logo.png"
-          lines = [
-              "\\usepackage{graphicx}",
-              "\\usepackage{fancyhdr}",
-              "\\usepackage{background}",
-              "\\pagestyle{fancy}",
-              "\\fancyhf{}",
-              "\\fancyhead[C]{\\textbf{\\textit{DiskWorldIntelligent}}}",
-              "\\fancyfoot[C]{\\thepage}",
-              "\\renewcommand{\\headrulewidth}{0.4pt}",
-              "\\renewcommand{\\footrulewidth}{0pt}",
-              "\\fancypagestyle{plain}{\\fancyhf{}\\fancyhead[C]{\\textbf{\\textit{DiskWorldIntelligent}}}\\fancyfoot[C]{\\thepage}\\renewcommand{\\headrulewidth}{0.4pt}\\renewcommand{\\footrulewidth}{0pt}}",
-              "\\AtBeginDocument{\\pagestyle{fancy}}",
-              "\\backgroundsetup{scale=1,opacity=0.3,angle=0,contents={\\includegraphics[width=0.8\\paperwidth,keepaspectratio]{" + logo + "}}}",
-          ]
-          with open("header.tex", "w") as f:
-              f.write("\n".join(lines) + "\n")
-          PYEOF
+          LOGO_PATH="$(pwd)/watermark.png"
+          {
+            printf '%s\n' '\usepackage{graphicx}'
+            printf '%s\n' '\usepackage{fancyhdr}'
+            printf '%s\n' '\usepackage{eso-pic}'
+            printf '%s\n' '\pagestyle{fancy}'
+            printf '%s\n' '\fancyhf{}'
+            printf '%s\n' '\fancyhead[C]{\textbf{\textit{DiskWorldIntelligent}}}'
+            printf '%s\n' '\fancyfoot[C]{\thepage}'
+            printf '%s\n' '\renewcommand{\headrulewidth}{0.4pt}'
+            printf '%s\n' '\renewcommand{\footrulewidth}{0pt}'
+            printf '%s\n' '\fancypagestyle{plain}{\fancyhf{}\fancyhead[C]{\textbf{\textit{DiskWorldIntelligent}}}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0pt}}'
+            printf '%s\n' '\AtBeginDocument{\pagestyle{fancy}}'
+            printf '%s\n' "\AddToShipoutPictureBG{\put(\LenToUnit{.5\paperwidth},\LenToUnit{.5\paperheight}){\makebox(0,0){\includegraphics[width=0.8\paperwidth,keepaspectratio]{${LOGO_PATH}}}}}"
+          } > header.tex
 
       - name: 生成完整单体 PDF（自动目录 + 中文完美支持）
         run: |
